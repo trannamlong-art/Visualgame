@@ -209,7 +209,11 @@ TextureImporter:
     secondaryTextures: []
     spriteCustomMetadata:
       entries: []
-    nameFileIdTable: {}
+    nameFileIdTable:
+      A-1_17-kaihoube-su-apude_0: 1265422456742942437
+      A-1_17-kaihoube-su-apude_1: -7959937182984070602
+      A-1_17-kaihoube-su-apude_2: -8274020467459835773
+      A-1_17-kaihoube-su-apude_3: 3249692077206695540
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
