@@ -1,4 +1,4 @@
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -11,19 +11,10 @@ using UnityEngine.InputSystem;
 [System.Serializable]
 public class CauThoai
 {
-    [Tooltip("Tên nhân vật (để trống nếu muốn ẩn khung)")]
     public string tenNhanVat;
-
-    [TextArea(2, 6), Tooltip("Nội dung lời thoại (để trống nếu muốn ẩn khung)")]
-    public string noiDung;
-
-    [Tooltip("Ảnh nhân vật (cơ bản)")]
+    [TextArea(2, 6)] public string noiDung;
     public Sprite anhNhanVat;
-
-    [Tooltip("Ảnh biểu cảm (đè lên ảnh nhân vật, có thể để trống)")]
     public Sprite anhBieuCam;
-
-    [Tooltip("Ảnh nền cho câu thoại này (tùy chọn)")]
     public Sprite anhNenMoi;
 }
 
@@ -34,43 +25,49 @@ public class LoiThoai : MonoBehaviour
     public TMP_Text tenNhanVatText;
     public TMP_Text noiDungText;
     public Image anhNhanVatUI;
-    public Image anhBieuCamUI; // <-- ảnh biểu cảm overlay
-    public GameObject goiYTiepTuc; // "Bấm phím bất kỳ..."
+    public Image anhBieuCamUI;
+    public GameObject goiYTiepTuc;
 
     [Header("Background")]
     public Image anhNenHienTai;
     public float tocDoChuyenNen = 1f;
 
-    [Header("Danh sách thoại (Inspector)")]
+    [Header("Danh sách thoại")]
     public List<CauThoai> danhSachThoai = new List<CauThoai>();
 
     [Header("Typewriter")]
-    [Range(0.005f, 0.2f)]
-    public float tocDoChu = 0.03f;
+    [Range(0.005f, 0.2f)] public float tocDoChu = 0.03f;
+
+    [Header("Lựa chọn")]
+    public GameObject luaChonPanel;
+    public int chiSoLuaChon = -1;
+
+    [Header("Giới hạn nhánh thoại")]
+    public int chiSoBatDau = 0;
+    public int chiSoKetThuc = -1;
 
     int chiSoHienTai = 0;
     Coroutine typingCoroutine = null;
     Coroutine bgCoroutine = null;
     Image bgOverlayImage = null;
     bool choPhepTiep = false;
+    bool dangLuaChon = false;
     string currentFullText = "";
 
     void Start()
     {
-        if (khungThoai != null)
-            khungThoai.SetActive(false);
+        if (khungThoai != null) khungThoai.SetActive(false);
+        if (goiYTiepTuc != null) goiYTiepTuc.SetActive(false);
+        if (luaChonPanel != null) luaChonPanel.SetActive(false);
 
-        if (goiYTiepTuc != null)
-            goiYTiepTuc.SetActive(false);
-
-        chiSoHienTai = 0;
+        chiSoHienTai = chiSoBatDau;
         HienThiHienTai();
     }
 
     void Update()
     {
-        bool anyKey = AnyKeyPressed();
-        if (!anyKey) return;
+        if (dangLuaChon) return;
+        if (!AnyKeyPressed()) return;
 
         if (typingCoroutine != null)
         {
@@ -78,7 +75,7 @@ public class LoiThoai : MonoBehaviour
             typingCoroutine = null;
             noiDungText.text = currentFullText;
             choPhepTiep = true;
-            if (goiYTiepTuc != null && khungThoai != null && khungThoai.activeSelf)
+            if (goiYTiepTuc != null && khungThoai.activeSelf)
                 goiYTiepTuc.SetActive(true);
             return;
         }
@@ -86,8 +83,10 @@ public class LoiThoai : MonoBehaviour
         if (choPhepTiep)
         {
             choPhepTiep = false;
-            if (goiYTiepTuc != null)
-                goiYTiepTuc.SetActive(false);
+            if (goiYTiepTuc != null) goiYTiepTuc.SetActive(false);
+
+            if (chiSoKetThuc != -1 && chiSoHienTai >= chiSoKetThuc)
+                return;
 
             chiSoHienTai++;
             HienThiHienTai();
@@ -99,16 +98,13 @@ public class LoiThoai : MonoBehaviour
         bool pressed = false;
         try
         {
-            if (Input.anyKeyDown)
-                pressed = true;
+            if (Input.anyKeyDown) pressed = true;
         }
         catch (System.InvalidOperationException)
         {
 #if ENABLE_INPUT_SYSTEM
-            if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame)
-                pressed = true;
-            if (!pressed && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame)
-                pressed = true;
+            if (Keyboard.current != null && Keyboard.current.anyKey.wasPressedThisFrame) pressed = true;
+            if (!pressed && Mouse.current != null && Mouse.current.leftButton.wasPressedThisFrame) pressed = true;
             if (!pressed && Gamepad.current != null)
             {
                 if (Gamepad.current.buttonSouth.wasPressedThisFrame ||
@@ -133,29 +129,18 @@ public class LoiThoai : MonoBehaviour
 
         CauThoai cau = danhSachThoai[chiSoHienTai];
 
-        // Nếu cả tên và nội dung trống -> ẩn khung
         if (string.IsNullOrWhiteSpace(cau.tenNhanVat) && string.IsNullOrWhiteSpace(cau.noiDung))
         {
-            if (khungThoai != null && khungThoai.activeSelf)
-                khungThoai.SetActive(false);
-
-            // Chuyển nền nếu có
+            if (khungThoai.activeSelf) khungThoai.SetActive(false);
             if (anhNenHienTai != null && cau.anhNenMoi != null)
                 BatDauChuyenNen(cau.anhNenMoi);
-
             choPhepTiep = true;
             return;
         }
 
-        // Hiện khung thoại
-        if (khungThoai != null && !khungThoai.activeSelf)
-            khungThoai.SetActive(true);
+        if (!khungThoai.activeSelf) khungThoai.SetActive(true);
+        if (tenNhanVatText != null) tenNhanVatText.text = cau.tenNhanVat ?? "";
 
-        // Hiện tên nhân vật
-        if (tenNhanVatText != null)
-            tenNhanVatText.text = cau.tenNhanVat ?? "";
-
-        // Ảnh nhân vật chính
         if (anhNhanVatUI != null)
         {
             if (cau.anhNhanVat != null)
@@ -163,13 +148,9 @@ public class LoiThoai : MonoBehaviour
                 anhNhanVatUI.sprite = cau.anhNhanVat;
                 anhNhanVatUI.enabled = true;
             }
-            else
-            {
-                anhNhanVatUI.enabled = false;
-            }
+            else anhNhanVatUI.enabled = false;
         }
 
-        // Ảnh biểu cảm (đè lên)
         if (anhBieuCamUI != null)
         {
             if (cau.anhBieuCam != null)
@@ -177,24 +158,15 @@ public class LoiThoai : MonoBehaviour
                 anhBieuCamUI.sprite = cau.anhBieuCam;
                 anhBieuCamUI.enabled = true;
             }
-            else
-            {
-                anhBieuCamUI.enabled = false;
-            }
+            else anhBieuCamUI.enabled = false;
         }
 
-        // Chuyển nền nếu có
         if (anhNenHienTai != null && cau.anhNenMoi != null && anhNenHienTai.sprite != cau.anhNenMoi)
             BatDauChuyenNen(cau.anhNenMoi);
 
-        // Hiện nội dung (typewriter)
         currentFullText = cau.noiDung ?? "";
-        if (noiDungText != null)
-            noiDungText.text = "";
-
-        if (goiYTiepTuc != null)
-            goiYTiepTuc.SetActive(false);
-
+        noiDungText.text = "";
+        if (goiYTiepTuc != null) goiYTiepTuc.SetActive(false);
         choPhepTiep = false;
 
         if (typingCoroutine != null)
@@ -202,21 +174,20 @@ public class LoiThoai : MonoBehaviour
             StopCoroutine(typingCoroutine);
             typingCoroutine = null;
         }
-
         typingCoroutine = StartCoroutine(Typewriter(currentFullText));
+
+        if (chiSoHienTai == chiSoLuaChon && luaChonPanel != null)
+            StartCoroutine(DelayLuaChon());
     }
 
     IEnumerator Typewriter(string text)
     {
-        if (noiDungText != null)
-            noiDungText.text = "";
-
+        noiDungText.text = "";
         if (string.IsNullOrEmpty(text))
         {
             typingCoroutine = null;
             choPhepTiep = true;
-            if (goiYTiepTuc != null)
-                goiYTiepTuc.SetActive(true);
+            if (goiYTiepTuc != null) goiYTiepTuc.SetActive(true);
             yield break;
         }
 
@@ -228,8 +199,31 @@ public class LoiThoai : MonoBehaviour
 
         typingCoroutine = null;
         choPhepTiep = true;
-        if (goiYTiepTuc != null)
-            goiYTiepTuc.SetActive(true);
+        if (goiYTiepTuc != null) goiYTiepTuc.SetActive(true);
+    }
+
+    IEnumerator DelayLuaChon()
+    {
+        yield return new WaitForSeconds(0.5f);
+        BatLuaChon();
+    }
+
+    void BatLuaChon()
+    {
+        dangLuaChon = true;
+        if (luaChonPanel != null) luaChonPanel.SetActive(true);
+        if (goiYTiepTuc != null) goiYTiepTuc.SetActive(false);
+    }
+
+    public void ChonLua(int chiSoMoi, int ketThucMoi = -1)
+    {
+        dangLuaChon = false;
+        if (luaChonPanel != null) luaChonPanel.SetActive(false);
+
+        chiSoHienTai = chiSoMoi;
+        chiSoBatDau = chiSoMoi;
+        chiSoKetThuc = ketThucMoi;
+        HienThiHienTai();
     }
 
     void BatDauChuyenNen(Sprite nenMoi)
@@ -244,9 +238,7 @@ public class LoiThoai : MonoBehaviour
 
     IEnumerator FadeBackground(Sprite nenMoi)
     {
-        if (anhNenHienTai == null || nenMoi == null)
-            yield break;
-
+        if (anhNenHienTai == null || nenMoi == null) yield break;
         EnsureBgOverlay();
 
         bgOverlayImage.sprite = nenMoi;
@@ -268,44 +260,32 @@ public class LoiThoai : MonoBehaviour
 
         anhNenHienTai.sprite = nenMoi;
         anhNenHienTai.color = baseColor;
-
         bgOverlayImage.enabled = false;
         bgCoroutine = null;
     }
 
     void EnsureBgOverlay()
     {
-        if (bgOverlayImage != null)
-            return;
-
+        if (bgOverlayImage != null) return;
         GameObject go = new GameObject("BG_Overlay");
         go.transform.SetParent(anhNenHienTai.transform.parent, false);
         Image img = go.AddComponent<Image>();
-
         RectTransform rtSrc = anhNenHienTai.rectTransform;
         RectTransform rt = img.rectTransform;
-
-        // Giữ đúng vị trí và kích thước gốc
         rt.anchorMin = Vector2.zero;
         rt.anchorMax = Vector2.one;
         rt.offsetMin = Vector2.zero;
         rt.offsetMax = Vector2.zero;
         rt.localScale = Vector3.one;
-
-        img.preserveAspect = false; // ⚠️ Tắt preserveAspect để không bị bóp méo khi đổi sprite
+        img.preserveAspect = false;
         img.raycastTarget = false;
         img.enabled = false;
-
         bgOverlayImage = img;
     }
 
-
     void KetThuc()
     {
-        if (khungThoai != null)
-            khungThoai.SetActive(false);
-        if (goiYTiepTuc != null)
-            goiYTiepTuc.SetActive(false);
-        // Kết thúc hội thoại - có thể thêm sự kiện nếu cần
+        if (khungThoai != null) khungThoai.SetActive(false);
+        if (goiYTiepTuc != null) goiYTiepTuc.SetActive(false);
     }
 }
