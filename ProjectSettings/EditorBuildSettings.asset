@@ -8,6 +8,36 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
+  - enabled: 1
+    path: Assets/Scenes/Menu.unity
+    guid: 7e7ad2c01777bb74c9af0b10656b19d6
+  - enabled: 1
+    path: "Assets/Scenes/Ng\xE0y 1.1.unity"
+    guid: 785f03008ac227d43a2d02a2dc6148f6
+  - enabled: 1
+    path: "Assets/Scenes/Ng\xE0y 1.2.unity"
+    guid: 849437b0a54adea4f854ddf01674e3c7
+  - enabled: 1
+    path: "Assets/Scenes/Ng\xE0y 2.unity"
+    guid: d4d982a119795e44db96ad7d466ec156
+  - enabled: 1
+    path: Assets/Scenes/Hentaiz.unity
+    guid: e335261df8611ab4f82c568dfc324804
+  - enabled: 1
+    path: Assets/Scenes/Shop.unity
+    guid: 7ba30a2a71ab23540a9e872923c3f19d
+  - enabled: 1
+    path: Assets/Scenes/Event25.unity
+    guid: ed769ff3f6ebb48489d7d892c9bcf41f
+  - enabled: 1
+    path: Assets/Scenes/Event50.unity
+    guid: dca2d8a8ff4e73e42a4515e40fc6ce6f
+  - enabled: 1
+    path: Assets/Scenes/Event75.unity
+    guid: 965f8f616465e014788b62db092a075a
+  - enabled: 1
+    path: Assets/Scenes/Event100.unity
+    guid: 531757e44230cb146a6770fce009e1f3
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 3590b91b4603b465dbb4216d601bff33, type: 3}
   m_UseUCBPForAssetBundles: 0
