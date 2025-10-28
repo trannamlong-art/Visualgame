@@ -18,6 +18,7 @@ public class LamviecManager : MonoBehaviour
     {
         if (dangLam) return; // tránh spam
         dangLam = true;
+
         if (lamViecButton) lamViecButton.interactable = false;
 
         if (NangLuongManager.instance.nangLuongHienTai < nangLuongTieuHao)
@@ -55,6 +56,7 @@ public class LamviecManager : MonoBehaviour
         lamViecPanel.SetActive(true);
 
         StartCoroutine(ChoNhanPhimVaChuyenBuoi(true));
+        StartCoroutine(WaitRoutine());
     }
 
     private IEnumerator ChoNhanPhimVaChuyenBuoi(bool chuyenBuoi)
@@ -82,6 +84,12 @@ public class LamviecManager : MonoBehaviour
 
             yield return null;
         }
+    }
+
+    private System.Collections.IEnumerator WaitRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        dangLam = false;
     }
 
     public void DongPanel()

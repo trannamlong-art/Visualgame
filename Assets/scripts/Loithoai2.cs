@@ -204,4 +204,9 @@ public class Loithoai2 : MonoBehaviour
     {
         KhoiDongThoai(batDau, ketThuc);
     }
+    void OnDestroy()
+    {
+        Debug.LogWarning($"⚠️ [Loithoai2] Object {name} bị Destroy lúc: {Time.time}");
+    }
 }
+

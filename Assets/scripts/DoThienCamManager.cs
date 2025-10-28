@@ -28,20 +28,22 @@ public class DoThienCamManager : MonoBehaviour
         if (instance == null)
         {
             instance = this;
-            DontDestroyOnLoad(transform.root.gameObject);
+            DontDestroyOnLoad(gameObject);
+
         }
         else
         {
             Destroy(gameObject);
+            return;
         }
     }
 
-    private void Start()
+    void Start()
     {
-#if UNITY_EDITOR
-        PlayerPrefs.DeleteKey("ThienCam"); // Reset mỗi lần Play Mode
-#endif
-        thienCamHienTai = PlayerPrefs.GetInt("ThienCam", 0);
+        // Đồng bộ dữ liệu từ GameDataManager nếu có
+        if (GameDataManager.instance != null)
+            thienCamHienTai = GameDataManager.instance.thienCam;
+
         CapNhatUI();
     }
 

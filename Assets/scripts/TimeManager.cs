@@ -24,22 +24,11 @@ public class TimeManager : MonoBehaviour
 
     private void Awake()
     {
-        // Singleton
         if (instance == null)
         {
             instance = this;
             DontDestroyOnLoad(gameObject);
 
-#if UNITY_EDITOR
-            // 🔹 Reset ngày mỗi khi Play Mode để test
-            ngayHienTai = 1;
-            if (GameDataManager.instance != null)
-                GameDataManager.instance.ngay = ngayHienTai;
-#else
-            // Load ngày từ GameDataManager nếu có
-            if (GameDataManager.instance != null)
-                ngayHienTai = GameDataManager.instance.ngay;
-#endif
         }
         else
         {
@@ -48,11 +37,16 @@ public class TimeManager : MonoBehaviour
         }
     }
 
+
     private void Start()
     {
         if (fadePanel != null)
             fadeImage = fadePanel.GetComponent<Image>();
 
+        if (GameDataManager.instance != null)
+            ngayHienTai = GameDataManager.instance.ngay;
+
+        CapNhatNgayUI();
         CapNhatBuoiNgayLapTuc();
         CapNhatNgayUI();
 

@@ -67,6 +67,7 @@
     <Compile Include="Assets\scripts\Loithoai2.cs" />
     <Compile Include="Assets\scripts\TienManager.cs" />
     <Compile Include="Assets\scripts\TimeManager.cs" />
+    <Compile Include="Assets\scripts\DialogueManager.cs" />
     <Compile Include="Assets\scripts\GameDataManager.cs" />
     <Compile Include="Assets\scripts\NghingoiManager.cs" />
     <Compile Include="Assets\scripts\NangluongManager.cs" />

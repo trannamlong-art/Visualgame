@@ -1087,6 +1087,7 @@ MonoBehaviour:
     anhNenMoi: {fileID: 0}
     coLuaChon: 0
   tocDoChu: 0.03
+  sceneKetThuc: 
 --- !u!4 &355493734
 Transform:
   m_ObjectHideFlags: 0
@@ -1633,7 +1634,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 3465286685962602723, guid: 93124fb41f201d04d92d193dbbb51ccd, type: 3}
+  m_Sprite: {fileID: 1902020684463643103, guid: 691137f10f3b6274ab5fa48d9afd75ae, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1

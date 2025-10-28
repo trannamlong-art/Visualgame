@@ -1,8 +1,11 @@
-﻿using UnityEngine;
+﻿using System.Collections.Generic;
 using TMPro;
+using UnityEngine;
 
 public class InteractionManager : MonoBehaviour
 {
+    public DialogueManager dialogueManager;
+    private bool isBusy = false;
     [Header("UI References")]
     public GameObject TuongtacPanel; 
     public TMP_Text TuongtacText;    
@@ -18,30 +21,46 @@ public class InteractionManager : MonoBehaviour
 
     public void OnTuongTacButtonClicked()
     { 
-        bool isActive = TuongtacPanel.activeSelf; // kiểm tra đang bật hay tắt
+        if (isBusy) return;
+        bool isActive = TuongtacPanel.activeSelf; 
 
-        // Nếu đang bật thì tắt, nếu đang tắt thì bật và hiển thị chữ
         TuongtacPanel.SetActive(!isActive);
 
-        // Nếu vừa bật thì hiển thị chữ và bật hộp thoại
         if (!isActive)
         {
             TuongtacText.text = TuongtacDialogue;
             ShowDialogueBox();
 
-            // Tắt cái còn lại nếu đang mở
             DirangoaiPanel.SetActive(false);
             TuidoPanel.SetActive(false);
         }
         else
         {
-            // Nếu tắt thì ẩn luôn khung hội thoại
             dialogueBox.SetActive(false);
+        }
+    }
+
+    public void OnNoiChuyenButtonClicked(string action)
+    {
+        if (action == "NoiChuyen")
+        {
+            var data = new DialogueManager.DialogueData
+            {
+                lines = new List<DialogueManager.DialogueLine>()
+                {
+                    new DialogueManager.DialogueLine { speaker = "Yuzuha", text = "Chào buổi sáng, cậu dậy sớm nhỉ!" },
+                    new DialogueManager.DialogueLine { speaker = "Người chơi", text = "Ừ, hôm nay trời đẹp mà." },
+                    new DialogueManager.DialogueLine { speaker = "Yuzuha", text = "Cậu muốn đi dạo không?" }
+                }
+            };
+
+            dialogueManager.StartDialogue(data);
         }
     }
 
     public void OnDirangoaiButtonClicked()
     {
+        if (isBusy) return;
         bool isActive = DirangoaiPanel.activeSelf;
 
         DirangoaiPanel.SetActive(!isActive);
@@ -62,6 +81,7 @@ public class InteractionManager : MonoBehaviour
 
     public void OnTuidoButtonClicked()
     {
+        if (isBusy) return;
         bool isActive = TuidoPanel.activeSelf;
 
         TuidoPanel.SetActive(!isActive);
@@ -69,16 +89,46 @@ public class InteractionManager : MonoBehaviour
         if(!isActive)
         {
             dialogueBox.SetActive(false);
-        }
-        else
-        {
             TuongtacPanel.SetActive(false);
             DirangoaiPanel.SetActive(false);
         }
     }
 
+    public void OnLamViecButtonClicked()
+    {
+        if (isBusy) return;
+        isBusy = true;
+
+        DirangoaiPanel.SetActive(false);
+        TuidoPanel.SetActive(false);
+        TuongtacPanel.SetActive(false);
+        dialogueBox.SetActive(false);
+
+        StartCoroutine(WaitRoutine());
+    }
+
+    public void OnNghiNgoiButtonClicked()
+    {
+        if (isBusy) return;
+        isBusy = true;
+
+        DirangoaiPanel.SetActive(false);
+        TuidoPanel.SetActive(false);
+        TuongtacPanel.SetActive(false);
+        dialogueBox.SetActive(false);
+
+        StartCoroutine(WaitRoutine());
+    }
+
+    private System.Collections.IEnumerator WaitRoutine()
+    {
+        yield return new WaitForSeconds(3f);
+        isBusy = false;
+    }
     void ShowDialogueBox()
     {
         dialogueBox.SetActive(true);
     }
+
+
 }

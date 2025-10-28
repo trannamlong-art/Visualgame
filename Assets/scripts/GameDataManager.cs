@@ -11,20 +11,51 @@ public class GameDataManager : MonoBehaviour
     public int nangLuong;
     public int ngay;
 
+    private bool daChuyenNgay2 = false;
+    private bool daChuyenNgay5 = false;
+
     private void Awake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
+        instance = this;
 
-            LoadGame(); // Load dữ liệu khi khởi động
-        }
-        else
+        
+        ResetDataMacDinh();
+        //LoadGame();
+
+        // 🔁 Tự động load dữ liệu mỗi khi scene được load lại
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDestroy()
+    {
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        LoadGame();
+        Debug.Log($"📥 Dữ liệu đã được load lại khi vào scene: {scene.name}");
+    }
+
+    void Update()
+    {
+        if (ngay == 2 && !daChuyenNgay2)
         {
-            Destroy(gameObject);
+            daChuyenNgay2 = true;
+            PlayerPrefs.SetInt("DaChuyenNgay2", 1); // ✅ lưu trạng thái
+            SaveGame();
+            SceneManager.LoadScene("Ngày 2");
+        }
+
+        if (ngay == 5 && !daChuyenNgay5)
+        {
+            daChuyenNgay5 = true;
+            PlayerPrefs.SetInt("DaChuyenNgay5", 1); // ✅ lưu trạng thái
+            SaveGame();
+            SceneManager.LoadScene("Ngày 5");
         }
     }
+
 
     public void SaveGame()
     {
@@ -34,7 +65,7 @@ public class GameDataManager : MonoBehaviour
         PlayerPrefs.SetInt("Ngay", ngay);
         PlayerPrefs.Save();
 
-        Debug.Log($"✅ Đã lưu game: Thiện cảm={thienCam}, Tiền={tien}, Năng lượng={nangLuong}, Ngày={ngay}");
+        Debug.Log($"💾 Lưu game: Thiện cảm={thienCam}, Tiền={tien}, Năng lượng={nangLuong}, Ngày={ngay}");
     }
 
     public void LoadGame()
@@ -44,7 +75,10 @@ public class GameDataManager : MonoBehaviour
         nangLuong = PlayerPrefs.GetInt("NangLuong", 100);
         ngay = PlayerPrefs.GetInt("Ngay", 1);
 
-        Debug.Log("📥 Đã load dữ liệu game từ PlayerPrefs");
+        daChuyenNgay2 = PlayerPrefs.GetInt("DaChuyenNgay2", 0) == 1;
+        daChuyenNgay5 = PlayerPrefs.GetInt("DaChuyenNgay5", 0) == 1;
+
+        Debug.Log($"📥 Load dữ liệu: Thiện cảm={thienCam}, Tiền={tien}, Năng lượng={nangLuong}, Ngày={ngay}");
     }
 
     public void ResetDataMacDinh()
@@ -53,8 +87,9 @@ public class GameDataManager : MonoBehaviour
         tien = 0;
         nangLuong = 100;
         ngay = 1;
+        SaveGame();
 
-        SaveGame(); // Lưu luôn vào PlayerPrefs
+        
 
         Debug.Log("🔄 Dữ liệu game đã reset về mặc định.");
     }
