@@ -1226,6 +1226,7 @@ MonoBehaviour:
     anhNenMoi: {fileID: 0}
     coLuaChon: 0
   tocDoChu: 0.03
+  sceneKetThuc: Main
 --- !u!4 &355493734
 Transform:
   m_ObjectHideFlags: 0

@@ -1294,8 +1294,8 @@ MonoBehaviour:
   chiSoBatDau: 52
   chiSoKetThuc: 52
   heThong: {fileID: 355493733}
-  chuyenSceneSauKhiKetThuc: 0
-  tenSceneChuyenDen: 
+  chuyenSceneSauKhiKetThuc: 1
+  tenSceneChuyenDen: BA
 --- !u!114 &760003039
 MonoBehaviour:
   m_ObjectHideFlags: 0

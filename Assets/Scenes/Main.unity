@@ -5011,6 +5011,7 @@ RectTransform:
   m_LocalScale: {x: 0.64764273, y: 0.64764273, z: 0.64764273}
   m_ConstrainProportionsScale: 0
   m_Children:
+  - {fileID: 2101820098}
   - {fileID: 1014557364}
   - {fileID: 1163996027}
   - {fileID: 475781445}
@@ -7716,6 +7717,7 @@ MonoBehaviour:
   tenNhanVatText: {fileID: 1014557365}
   noiDungText: {fileID: 1163996028}
   anhNhanVatUI: {fileID: 475781446}
+  anhGiuaUI: {fileID: 2101820099}
   anhBieuCamUI: {fileID: 38759373}
   goiYTiepTuc: {fileID: 195975644}
   danhSachThoai:
@@ -7723,140 +7725,168 @@ MonoBehaviour:
     noiDung: "\u201CEm \u0111ang l\xE0m g\xEC \u0111\u1EA5y? L\u1EA1i lau nh\xE0
       n\u1EEFa \xE0?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: -3368459958191796360, guid: cc1400584b0053c49a555a83402c11db, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: 
     noiDung: 
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: -4356177995164181495, guid: ab93a2c0dee483849b56708bd53d541d, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CD\u1EA1, em th\u1EA5y s\xE0n h\u01A1i b\u1EA9n n\xEAn lau l\u1EA1i
       ch\xFAt th\xF4i \u1EA1.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: -3368459958191796360, guid: cc1400584b0053c49a555a83402c11db, type: 3}
     anhBieuCam: {fileID: 21300000, guid: 033f0fb894ea7a745b9b024b327faa6f, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CC\u1EA3 ng\xE0y em ch\u1EC9 lo d\u1ECDn d\u1EB9p th\u1EBF n\xE0y
       ch\u1EAFc m\u1EC7t l\u1EAFm nh\u1EC9.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: -3368459958191796360, guid: cc1400584b0053c49a555a83402c11db, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CKh\xF4ng \u0111\xE2u \u1EA1. Em l\xE0m quen r\u1ED3i. V\u1EDBi
       l\u1EA1i\u2026 nh\xECn nh\xE0 s\u1EA1ch em th\u1EA5y d\u1EC5 ch\u1ECBu h\u01A1n.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: -3368459958191796360, guid: cc1400584b0053c49a555a83402c11db, type: 3}
     anhBieuCam: {fileID: 21300000, guid: 174cb415b04683c499b2dfbae4c13b70, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CTh\u1EBF c\xF2n b\u1EA3n th\xE2n em th\xEC sao? L\xFAc n\xE0o
       c\u0169ng lo cho ng\u01B0\u1EDDi kh\xE1c.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: -3368459958191796360, guid: cc1400584b0053c49a555a83402c11db, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CEm kh\xF4ng th\u1EA5y phi\u1EC1n \u0111\xE2u \u1EA1. C\xF3 ch\u1ED7
       \u0111\u1EC3 ch\u0103m s\xF3c, em th\u1EA5y vui m\xE0.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: -4356177995164181495, guid: ab93a2c0dee483849b56708bd53d541d, type: 3}
     anhBieuCam: {fileID: 21300000, guid: 033f0fb894ea7a745b9b024b327faa6f, type: 2}
   - tenNhanVat: 
     noiDung: "Nh\u1ECF n\xE0y\u2026 v\u1EEBa n\xF3i v\u1EEBa c\u01B0\u1EDDi nh\u1EB9,
       \xE1nh m\u1EAFt s\xE1ng l\xEAn gi\u1EEFa l\xE0n t\xF3c r\u1ED1i. Kh\xF4ng hi\u1EC3u
       sao, t\xF4i l\u1EA1i th\u1EA5y l\xF2ng m\xECnh \u1EA5m l\u1EA1."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: -3368459958191796360, guid: cc1400584b0053c49a555a83402c11db, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CEm ng\u1ED3i y\xEAn th\u1EBF kia, \u0111ang ngh\u0129 g\xEC v\u1EADy?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CHm\u2026 em ch\u1EC9 \u0111ang nh\xECn m\u1EA5y \u0111\xE1m m\xE2y
       th\xF4i. Ch\xFAng thay \u0111\u1ED5i h\xECnh d\u1EA1ng nhanh th\u1EADt.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 174cb415b04683c499b2dfbae4c13b70, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CAnh th\u1EA5y to\xE0n h\xECnh m\u1EA5y con v\u1EADt l\u1EA1 l\u1EA1
       th\xF4i. Em th\u1EA5y g\xEC?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CEm th\u1EA5y\u2026 h\xECnh m\u1ED9t con th\u1ECF \u0111ang n\u1EB1m
       ng\u1EE7 \u1EA1.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 2e01370a6a8b43142b25e06d46790efe, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CAnh nh\xECn m\xE3i ch\u1EB3ng ra\u2026 ch\u1EAFc m\u1EAFt anh
       k\xE9m r\u1ED3i.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CKh\xF4ng \u0111\xE2u~ ch\u1EAFc t\u1EA1i anh kh\xF4ng t\u01B0\u1EDFng
       t\u01B0\u1EE3ng nhi\u1EC1u th\xF4i. Nh\xECn k\u1EF9 s\u1EBD th\u1EA5y m\xE0.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: e800d5722e1eddc4aa11a29572972f67, type: 2}
   - tenNhanVat: 
     noiDung: "\u0110\xF4i khi, con b\xE9 n\xF3i ra m\u1EA5y \u0111i\u1EC1u \u0111\u01A1n
       gi\u1EA3n nh\u01B0 v\u1EADy, m\xE0 l\u1EA1i khi\u1EBFn t\xF4i th\u1EA5y b\xECnh
       y\xEAn \u0111\u1EBFn kh\xF3 t\u1EA3."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CN\xE0y, em c\xF3 th\xEDch nghe nh\u1EA1c kh\xF4ng?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CC\xF3 \u1EA1! Em th\xEDch m\u1EA5y b\xE0i nh\u1EB9 nh\xE0ng,
       c\xF3 piano \u1EA5y.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 033f0fb894ea7a745b9b024b327faa6f, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CV\u1EADy \xE0, anh l\u1EA1i th\xEDch m\u1EA5y b\u1EA3n lo-fi,
       nghe l\xFAc l\xE0m vi\u1EC7c th\u1EA5y d\u1EC5 t\u1EADp trung.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CLo-fi\u2026 l\xE0 ki\u1EC3u nh\u1EA1c c\xF3 ti\u1EBFng m\u01B0a
       nh\u1ECF nh\u1ECF ph\u1EA3i kh\xF4ng \u1EA1?\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 174cb415b04683c499b2dfbae4c13b70, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201C\u1EEA, \u0111\xFAng r\u1ED3i. C\xF3 khi n\xE0o anh m\u1EDF th\u1EED
       cho em nghe nh\xE9?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CTh\u1EADt sao? Em th\xEDch l\u1EAFm. C\u1EA3m \u01A1n anh.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 97f0c2494b3916e4e9d597afb12e0773, type: 2}
   - tenNhanVat: 
     noiDung: "Con b\xE9 nghi\xEAng \u0111\u1EA7u, n\u1EDF m\u1ED9t n\u1EE5 c\u01B0\u1EDDi
       nh\u1ECF. T\u1EF1 nhi\xEAn, c\u0103n ph\xF2ng y\xEAn \u1EAFng n\xE0y l\u1EA1i
       th\u1EA5y nh\u01B0 c\xF3 \xE2m nh\u1EA1c th\u1EADt."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CC\xF3 m\xF9i g\xEC th\u01A1m th\u1EBF n\xE0y? Em l\u1EA1i \u0111ang
       n\u1EA5u g\xEC \xE0?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201C\xC0, em ch\u1EC9 l\xE0m th\u1EED m\xF3n tr\u1EE9ng chi\xEAn
       th\xF4i \u1EA1. Kh\xF4ng bi\u1EBFt c\xF3 ngon kh\xF4ng\u2026\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 174cb415b04683c499b2dfbae4c13b70, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CTh\u01A1m th\u1EADt \u0111\u1EA5y. Anh c\xF2n t\u01B0\u1EDFng
       l\xE0 nh\xE0 h\xE0ng n\xE0o \u0111ang m\u1EDF g\u1EA7n \u0111\xE2y c\u01A1.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CAnh \u0111\u1EEBng tr\xEAu em m\xE0\u2026 Em ch\u1EC9 l\xE0m
       \u0111\u1EA1i th\xF4i.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: b457057edc6cab0479277ebdafacb2be, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CL\xE0m \u0111\u1EA1i m\xE0 ngon th\u1EBF n\xE0y th\xEC ch\u1EAFc
       khi nghi\xEAm t\xFAc s\u1EBD th\xE0nh \u0111\u1EA7u b\u1EBFp m\u1EA5t.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: 
     noiDung: "\u201CAnh n\xF3i qu\xE1 r\u1ED3i~ Em ch\u1EC9 mu\u1ED1n anh \u0103n
       th\u1EA5y vui l\xE0 \u0111\u01B0\u1EE3c.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 033f0fb894ea7a745b9b024b327faa6f, type: 2}
   - tenNhanVat: 
     noiDung: "Th\u1EA5y con b\xE9 c\u01B0\u1EDDi kh\u1EBD, t\xF4i t\u1EF1 h\u1ECFi
@@ -7864,34 +7894,41 @@ MonoBehaviour:
       ai \u0111\xF3 n\u1EA5u cho \u0103n v\u1EDBi \xE1nh m\u1EAFt d\u1ECBu d\xE0ng
       nh\u01B0 th\u1EBF n\xE0y."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CEm c\xF3 khi n\xE0o th\u1EA5y\u2026 cu\u1ED9c s\u1ED1ng \u1EDF
       \u0111\xE2y bu\u1ED3n kh\xF4ng?\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CHm\u2026 c\u0169ng c\xF3 ch\xFAt \u1EA1. Nh\u01B0ng \xEDt nh\u1EA5t,
       em th\u1EA5y b\xECnh y\xEAn h\u01A1n tr\u01B0\u1EDBc.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 97f0c2494b3916e4e9d597afb12e0773, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CB\xECnh y\xEAn \xE0? Anh c\u0169ng th\u1EA5y v\u1EADy.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201C\u1EDE \u0111\xE2y y\xEAn t\u0129nh, kh\xF4ng ai la m\u1EAFng,
       kh\xF4ng ai \xE9p bu\u1ED9c. Em \u0111\u01B0\u1EE3c l\xE0m ch\xEDnh m\xECnh.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: 033f0fb894ea7a745b9b024b327faa6f, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CNghe em n\xF3i v\u1EADy\u2026 t\u1EF1 nhi\xEAn anh th\u1EA5y
       nh\xE0 n\xE0y b\u1EDBt tr\u1ED1ng h\u01A1n th\u1EADt.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CAnh \u0111ang n\xF3i g\xEC k\u1EF3 v\u1EADy~\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 21300000, guid: b457057edc6cab0479277ebdafacb2be, type: 2}
   - tenNhanVat: 
     noiDung: "Con b\xE9 che mi\u1EC7ng c\u01B0\u1EDDi, c\xF2n t\xF4i ch\u1EC9 bi\u1EBFt
@@ -7899,31 +7936,38 @@ MonoBehaviour:
       nh\u1ECF nh\u1EB7t th\u1EBF n\xE0y l\u1EA1i khi\u1EBFn m\u1ECDi th\u1EE9 tr\u1EDF
       n\xEAn \u1EA5m \xE1p h\u01A1n c\u1EA3."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CEm gi\u1ECFi l\u1EAFm, cho xoa \u0111\u1EA7u m\u1ED9t c\xE1i
       nh\xE9.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 3120171332556866640, guid: c1bc12d9cfc430a4aa0b51542062dbe3, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CAnh l\u1EA1i b\u1EAFt \u0111\u1EA7u r\u1ED3i\u2026\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: 2925044179813461827, guid: bb458c90aa8c94e488f2b80e0b96864d, type: 3}
     anhBieuCam: {fileID: 21300000, guid: 3d18f78f185a5df4f949bc93f4f624de, type: 2}
   - tenNhanVat: Kazuma
     noiDung: "\u201CCoi nh\u01B0 ph\u1EA7n th\u01B0\u1EDFng nho nh\u1ECF.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 2925044179813461827, guid: bb458c90aa8c94e488f2b80e0b96864d, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Yuzuha
     noiDung: "\u201CR\u1ED3i, r\u1ED3i, em ch\u1ECBu anh lu\xF4n.\u201D"
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: -7508798085113531223, guid: b92a9beb095f4734b885e86fbfc606c3, type: 3}
     anhBieuCam: {fileID: 21300000, guid: faee27f5c4febd84e920cacff24fbfd6, type: 2}
   - tenNhanVat: Yuzuha
     noiDung: <3
     anhNhanVat: {fileID: 5351457285451525327, guid: 62a15f60d1bd24f4cbdc17d8a1047ea4, type: 3}
+    anhGiua: {fileID: -9124810007742690722, guid: a4212cdf73c644e479ee58dbc2907c54, type: 3}
     anhBieuCam: {fileID: 21300000, guid: faee27f5c4febd84e920cacff24fbfd6, type: 2}
   - tenNhanVat: 
     noiDung: 
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 6204965173091187965, guid: 78a46fd1a6349534691ae50c19b92bd0, type: 3}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: 
     noiDung: "T\xF4i lang thang tr\xEAn con \u0111\u01B0\u1EDDng nh\u1ECF sau khu
@@ -7931,6 +7975,7 @@ MonoBehaviour:
       gi\xF3 nh\u1EB9 th\u1ED5i qua mang theo m\xF9i \u0111\u1EA5t \u1EA9m v\xE0
       h\u01B0\u01A1ng hoa d\u1EA1i ven \u0111\u01B0\u1EDDng."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: 
     noiDung: "T\xF4i ch\u1EB3ng mang theo g\xEC ngo\xE0i v\xE0i suy ngh\u0129 v\u1EE5n
@@ -7938,11 +7983,13 @@ MonoBehaviour:
       l\xE0 \u201Clo l\u1EAFng\u201D, nh\u01B0ng c\u0169ng ch\u1EB3ng bi\u1EBFn m\u1EA5t
       \u0111\u01B0\u1EE3c."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: 
     noiDung: "M\u1ED7i b\u01B0\u1EDBc \u0111i l\u1EA1i khi\u1EBFn t\xF4i th\u1EA5y
       b\xECnh t\u0129nh h\u01A1n."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: 
     noiDung: "C\xF3 l\u1EBD v\xEC ch\u1EC9 khi ra ngo\xE0i, t\xF4i m\u1EDBi nh\u1EADn
@@ -7950,12 +7997,14 @@ MonoBehaviour:
       v\xE0 nh\u1EEFng \u0111i\u1EC1u \u0111ang l\xE0m phi\u1EC1n t\xF4i th\u1EADt
       ra c\u0169ng nh\u1ECF b\xE9 th\xF4i."
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   - tenNhanVat: Kazuma
     noiDung: "\u201CC\xF3 nh\u1EEFng ng\xE0y nh\u01B0 th\u1EBF n\xE0y, ch\u1EC9 c\u1EA7n
       im l\u1EB7ng \u0111i m\u1ED9t m\xECnh\u2026 c\u0169ng \u0111\u1EE7 khi\u1EBFn
       l\xF2ng th\u1EA5y d\u1ECBu l\u1EA1i.\u201D"
     anhNhanVat: {fileID: 0}
+    anhGiua: {fileID: 0}
     anhBieuCam: {fileID: 0}
   tocDoChu: 0.03
   chiSoBatDau: 0
@@ -8772,6 +8821,81 @@ CanvasRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2095519589}
+  m_CullTransparentMesh: 1
+--- !u!1 &2101820097
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2101820098}
+  - component: {fileID: 2101820100}
+  - component: {fileID: 2101820099}
+  m_Layer: 5
+  m_Name: Image
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &2101820098
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101820097}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.6413568, y: 1.6413568, z: 1.6413568}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1158733765}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -276, y: 662.4022}
+  m_SizeDelta: {x: 227, y: 334}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2101820099
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101820097}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 0}
+  m_Type: 0
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &2101820100
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2101820097}
   m_CullTransparentMesh: 1
 --- !u!1 &2105784871
 GameObject:

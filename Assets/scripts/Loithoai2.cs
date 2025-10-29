@@ -13,8 +13,11 @@ public class CauThoai2
 {
     public string tenNhanVat;
     [TextArea(2, 6)] public string noiDung;
-    public Sprite anhNhanVat;
-    public Sprite anhBieuCam;
+
+    [Header("Hình ảnh thoại")]
+    public Sprite anhNhanVat;   // Ảnh nhân vật (trái)
+    public Sprite anhGiua;       // Ảnh giữa màn hình (mới thêm)
+    public Sprite anhBieuCam;   // Ảnh biểu cảm (phải)
 }
 
 public class Loithoai2 : MonoBehaviour
@@ -24,6 +27,7 @@ public class Loithoai2 : MonoBehaviour
     public TMP_Text tenNhanVatText;
     public TMP_Text noiDungText;
     public Image anhNhanVatUI;
+    public Image anhGiuaUI;        // 🆕 Ảnh giữa màn hình
     public Image anhBieuCamUI;
     public GameObject goiYTiepTuc;
 
@@ -47,6 +51,10 @@ public class Loithoai2 : MonoBehaviour
     {
         if (khungThoai != null) khungThoai.SetActive(false);
         if (goiYTiepTuc != null) goiYTiepTuc.SetActive(false);
+
+        if (anhNhanVatUI != null) anhNhanVatUI.enabled = false;
+        if (anhGiuaUI != null) anhGiuaUI.enabled = false;
+        if (anhBieuCamUI != null) anhBieuCamUI.enabled = false;
     }
 
     void Update()
@@ -54,7 +62,7 @@ public class Loithoai2 : MonoBehaviour
         if (!daBatDauThoai) return;
         if (!AnyKeyPressed()) return;
 
-        // Nếu đang type → skip ngay
+        // Nếu đang gõ chữ → skip ngay
         if (typingCoroutine != null)
         {
             StopCoroutine(typingCoroutine);
@@ -94,10 +102,8 @@ public class Loithoai2 : MonoBehaviour
 
     void HienThiHienTai()
     {
-        // 🔍 Log kiểm tra chỉ số hiện tại
         Debug.Log($"[Loithoai2] Hiển thị câu {chiSoHienTai}/{chiSoKetThuc}");
 
-        // ✅ Kiểm tra giới hạn danh sách và giới hạn thoại
         if (chiSoHienTai < 0 || chiSoHienTai >= danhSachThoai.Count ||
             (chiSoKetThuc >= 0 && chiSoHienTai > chiSoKetThuc))
         {
@@ -115,7 +121,7 @@ public class Loithoai2 : MonoBehaviour
             khungThoai.SetActive(false);
             tenNhanVatText.text = "";
             noiDungText.text = "";
-            choPhepTiep = true; // Nhấn phím → sang element tiếp theo
+            choPhepTiep = true;
             return;
         }
 
@@ -123,18 +129,28 @@ public class Loithoai2 : MonoBehaviour
         khungThoai.SetActive(true);
         tenNhanVatText.text = cau.tenNhanVat ?? "";
 
+        // 🧩 Cập nhật ảnh nhân vật (trái)
         if (anhNhanVatUI != null)
         {
             anhNhanVatUI.sprite = cau.anhNhanVat;
             anhNhanVatUI.enabled = (cau.anhNhanVat != null);
         }
 
+        // 🆕 Cập nhật ảnh giữa màn hình
+        if (anhGiuaUI != null)
+        {
+            anhGiuaUI.sprite = cau.anhGiua;
+            anhGiuaUI.enabled = (cau.anhGiua != null);
+        }
+
+        // 🧩 Cập nhật ảnh biểu cảm (phải)
         if (anhBieuCamUI != null)
         {
             anhBieuCamUI.sprite = cau.anhBieuCam;
             anhBieuCamUI.enabled = (cau.anhBieuCam != null);
         }
 
+        // Gõ chữ
         currentFullText = cau.noiDung ?? "";
         noiDungText.text = "";
         choPhepTiep = false;
@@ -175,7 +191,10 @@ public class Loithoai2 : MonoBehaviour
         khungThoai?.SetActive(false);
         goiYTiepTuc?.SetActive(false);
 
-        // 🔄 Reset lại chỉ số để tránh lỗi nối thoại
+        if (anhNhanVatUI != null) anhNhanVatUI.enabled = false;
+        if (anhGiuaUI != null) anhGiuaUI.enabled = false;
+        if (anhBieuCamUI != null) anhBieuCamUI.enabled = false;
+
         chiSoBatDau = 0;
         chiSoKetThuc = -1;
         chiSoHienTai = 0;
@@ -199,14 +218,13 @@ public class Loithoai2 : MonoBehaviour
 
     public bool DangChayThoai() => daBatDauThoai;
 
-    // Hỗ trợ tương thích TuongTac
     public void ChonLua(int batDau, int ketThuc)
     {
         KhoiDongThoai(batDau, ketThuc);
     }
+
     void OnDestroy()
     {
         Debug.LogWarning($"⚠️ [Loithoai2] Object {name} bị Destroy lúc: {Time.time}");
     }
 }
-

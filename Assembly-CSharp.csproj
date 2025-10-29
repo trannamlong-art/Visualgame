@@ -76,6 +76,7 @@
     <Compile Include="Assets\scripts\DoThienCamManager.cs" />
     <Compile Include="Assets\scripts\SaveGameButton.cs" />
     <Compile Include="Assets\scripts\LuaChonButton.cs" />
+    <Compile Include="Assets\scripts\BackToMenu.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
